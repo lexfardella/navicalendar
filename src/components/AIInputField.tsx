@@ -29,7 +29,7 @@ const AIInputField: React.FC<AIInputFieldProps> = ({ onSubmit, conversation, isP
   const audioChunksRef = useRef<Blob[]>([]);
 
   const openai = new OpenAI({
-    apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
+    apiKey: process.env.OPENAI_API_KEY,
     dangerouslyAllowBrowser: true
   });
 

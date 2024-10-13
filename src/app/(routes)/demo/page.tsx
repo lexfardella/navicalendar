@@ -1,8 +1,8 @@
 "use client"
 
 import React, { useState, useCallback, useMemo } from 'react';
-import { startOfDay, addDays, subDays, format, isSameDay, startOfWeek, endOfWeek, isWithinInterval } from 'date-fns';
-import { ChevronLeft, ChevronRight, Plus, Calendar as CalendarIcon, LayoutGrid, MessageSquare } from 'lucide-react';
+import { addDays, subDays, format, isSameDay, startOfWeek, endOfWeek } from 'date-fns';
+import { ChevronLeft, ChevronRight, Plus, Calendar as CalendarIcon, LayoutGrid } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import TaskList from '@/components/TaskList';

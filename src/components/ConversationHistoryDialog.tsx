@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { format } from 'date-fns';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { MessageSquare, User, Waypoints } from 'lucide-react';
+import { User, Waypoints } from 'lucide-react';
 import { ConversationEntry } from '../../types/index';
 
 interface ConversationHistoryDialogProps {

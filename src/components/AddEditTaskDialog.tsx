@@ -7,10 +7,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Task, TaskStep, Priority, TaskStatus, AIResponse, AddEditTaskDialogProps, AICommandType } from '../../types/index';
-import { X, Wand, Plus, Link, Trash2 } from 'lucide-react';
+import { Task, TaskStep, Priority, TaskStatus, AddEditTaskDialogProps } from '../../types/index';
+import { X, Plus, Link, Trash2 } from 'lucide-react';
 
-const AddEditTaskDialog: React.FC<AddEditTaskDialogProps> = ({ task, onClose, onSave, taskList, isTaskLimitReached }) => {
+const AddEditTaskDialog: React.FC<AddEditTaskDialogProps> = ({ task, onClose, onSave, isTaskLimitReached }) => {
   const [title, setTitle] = useState(task?.title || '');
   const [description, setDescription] = useState(task?.description || '');
   const [priority, setPriority] = useState<Priority>(task?.priority || 'medium');
@@ -108,7 +108,7 @@ const AddEditTaskDialog: React.FC<AddEditTaskDialogProps> = ({ task, onClose, on
         {!task && isTaskLimitReached && (
           <Alert variant="destructive">
             <AlertDescription>
-              You've reached the maximum limit of tasks. Please complete or remove existing tasks before adding new ones.
+              You&apos;ve reached the maximum limit of tasks. Please complete or remove existing tasks before adding new ones.
             </AlertDescription>
           </Alert>
         )}

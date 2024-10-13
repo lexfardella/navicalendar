@@ -5,7 +5,7 @@ import { Task } from '../../types';
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { Check, ChevronRight, Clock, AlertTriangle, Edit2, Trash2, Link, ExternalLink } from 'lucide-react';
+import { ChevronRight, AlertTriangle, Edit2, Trash2, Link, ExternalLink } from 'lucide-react';
 
 interface TaskCardProps {
   task: Task;

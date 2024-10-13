@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
 import { Task, TaskStep, Priority, TaskStatus, AIResponse, AICommandType } from '../../../../types';
-import { formatInTimeZone, fromZonedTime, toZonedTime, getTimezoneOffset } from 'date-fns-tz';
+import { formatInTimeZone, fromZonedTime } from 'date-fns-tz';
 import { parseISO } from 'date-fns';
 
 const openai = new OpenAI({

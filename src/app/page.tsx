@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useEffect, useRef } from 'react';
-import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Calendar, MessageSquare, Clock } from 'lucide-react';

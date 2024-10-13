@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ScrollArea } from "@/components/ui/scroll-area";
 import TaskCard from './TaskCard';
 import { Task } from '../../types/index';
-import { Calendar, Plus, ChevronRight, Mic, MessageSquare } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { format, startOfWeek, endOfWeek, isWithinInterval, startOfDay, endOfDay, eachDayOfInterval, isSameMonth, isToday } from 'date-fns';
 import { Button } from "@/components/ui/button";
 
@@ -25,7 +25,6 @@ const TaskList: React.FC<TaskListProps> = ({
   onEditTask,
   onDeleteTask,
   onUpdateTask,
-  onAddTask,
   onChangeView,
 }) => {
   const isDateInRange = (date: Date, start: Date, end: Date) => {
@@ -84,9 +83,9 @@ const TaskList: React.FC<TaskListProps> = ({
       >
         <h4 className="font-semibold mb-3 text-gray-700">Try saying or typing:</h4>
         <ul className="list-disc list-inside space-y-2 text-left">
-          <li>"Schedule a team meeting at 4 PM"</li>
-          <li>"Set a task for the product management interview today and provide resources for preparing"</li>
-          <li>"Remind me to call Mom on her birthday next week"</li>
+          <li>&quot;Schedule a team meeting at 4 PM&quot;</li>
+          <li>&quot;Set a task for the product management interview today and provide resources for preparing&quot;</li>
+          <li>&quot;Remind me to call Mom on her birthday next week&quot;</li>
         </ul>
       </motion.div>
     </motion.div>

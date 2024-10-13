@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import ConversationHistoryDialog from './ConversationHistoryDialog';
-import OpenAI from 'openai';
 import { ConversationEntry } from '../../types/index';
 
 interface AIInputFieldProps {
@@ -27,11 +26,6 @@ const AIInputField: React.FC<AIInputFieldProps> = ({ onSubmit, conversation, isP
   const animationFrameRef = useRef<number | null>(null);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
-
-  const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-    dangerouslyAllowBrowser: true
-  });
 
   useEffect(() => {
     return () => {
@@ -109,12 +103,17 @@ const AIInputField: React.FC<AIInputFieldProps> = ({ onSubmit, conversation, isP
     audioChunksRef.current = [];
     setIsTranscribing(true);
     try {
-      const audioFile = new File([audioBlob], 'audio.webm', { type: 'audio/webm' });
-      const response = await openai.audio.transcriptions.create({
-        file: audioFile,
-        model: 'whisper-1',
+      const formData = new FormData();
+      formData.append('audio', audioBlob, 'audio.webm');
+      const response = await fetch('/api/transcribe', {
+        method: 'POST',
+        body: formData,
       });
-      onSubmit(response.text);
+      if (!response.ok) {
+        throw new Error('Failed to transcribe audio');
+      }
+      const data = await response.json();
+      onSubmit(data.text);
     } catch (error) {
       console.error('Transcription error:', error);
     } finally {
